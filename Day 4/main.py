@@ -30,7 +30,9 @@ scissors = """
 # Write your code below this line 👇
 rps_images = [rock, paper, scissors]
 
-user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+user_choice = int(
+    input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n")
+)
 if user_choice >= 3 or user_choice < 0:
     print("You typed in wrong number, you lose!")
 else:
@@ -39,7 +41,6 @@ else:
     pc_choice = random.randint(0, 2)
     print("Computer chose:")
     print(rps_images[pc_choice])
-
 
     if user_choice == 0 and pc_choice == 1:
         print("You lose")

@@ -1,23 +1,36 @@
-### Hangman ###
-# Step 1
+# Step 3
 
-word_list = ["aardvark", "baboon", "camel"]
-
-# TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
 import random
 
+word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
-print(chosen_word)
+word_length = len(chosen_word)
 
-# TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
+# Testing code
+print(f"Pssst, the solution is {chosen_word}.")
 
-guess = input("Guess a letter: ").lower()
-print(guess)
+# Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
 
-# TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
+# TODO-1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+end_of_game = False
 
-for letter in chosen_word:
-    if letter == guess:
-        print("Right")
-    else:
-        print("Wrong")
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    # Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+        print(
+            f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}"
+        )
+        if letter == guess:
+            display[position] = letter
+
+    print(display)
+
+    if "_" not in display:
+        end_of_game = True
+        print("You win!")

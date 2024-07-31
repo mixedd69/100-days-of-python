@@ -11,5 +11,7 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     }
-  }
+  },
+  "todo-tree.tree.showBadges": true,
+  "todo-tree.tree.scanMode": "current file"
 }

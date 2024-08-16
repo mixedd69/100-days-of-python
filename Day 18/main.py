@@ -1,83 +1,59 @@
-# Turtle Intro #
-
-from turtle import Screen, Turtle
+import turtle as turtle_module
 import random
 
-tim = Turtle()
-screen = Screen()
-screen.colormode(255)
+turtle_module.colormode(255)
+tim = turtle_module.Turtle()
+tim.speed("fastest")
+tim.penup()
+tim.hideturtle()
+color_list = [
+    (245, 243, 238),
+    (246, 242, 244),
+    (202, 164, 110),
+    (240, 245, 241),
+    (236, 239, 243),
+    (149, 75, 50),
+    (222, 201, 136),
+    (53, 93, 123),
+    (170, 154, 41),
+    (138, 31, 20),
+    (134, 163, 184),
+    (197, 92, 73),
+    (47, 121, 86),
+    (73, 43, 35),
+    (145, 178, 149),
+    (14, 98, 70),
+    (232, 176, 165),
+    (160, 142, 158),
+    (54, 45, 50),
+    (101, 75, 77),
+    (183, 205, 171),
+    (36, 60, 74),
+    (19, 86, 89),
+    (82, 148, 129),
+    (147, 17, 19),
+    (27, 68, 102),
+    (12, 70, 64),
+    (107, 127, 153),
+    (176, 192, 208),
+    (168, 99, 102),
+]
 
+tim.setheading(255)
+tim.forward(250)
+tim.setheading(0)
+num_of_dots = 100
 
-def rnd_color():
-    """Returns random rgb color code for each rgb value (red, green, blue) from 0 to 255"""
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    color = (r, g, b)
-    return color
+for dot_count in range(1, num_of_dots + 1):
+    tim.dot(20, random.choice(color_list))
+    tim.forward(50)
 
+    if dot_count % 10 == 0:
+        tim.setheading(90)
+        tim.forward(50)
+        tim.setheading(180)
+        tim.forward(500)
+        tim.setheading(0)
 
-# tim.shape("turtle")
-# tim.color("red")
-
-# Challenge 1 - Draw a Square #
-# for _ in range(4):
-#     tim.forward(100)
-#     tim.right(90)
-
-# Challenge 2 - Draw a Dashed Line #
-# for _ in range(15):
-#     tim.forward(10)
-#     tim.penup()
-#     tim.forward(10)
-#     tim.pendown()
-
-# Challenge 3 - Draw Shapes #
-# screen.colormode(255)
-#
-#
-# def rnd_color():
-#     """Returns random rgb color code for each rgb value (red, green, blue) from 0 to 255"""
-#     r = random.randint(0, 255)
-#     g = random.randint(0, 255)
-#     b = random.randint(0, 255)
-#     return r, g, b
-#
-#
-# def draw_shape(num_sides):
-#     tim.color(rnd_color())
-#     angle = 360 / num_sides
-#     for _ in range(num_sides):
-#         tim.forward(100)
-#         tim.right(angle)
-#
-#
-# for shape_side_n in range(3, 11):
-#     draw_shape(shape_side_n)
-
-# Challenge 4 - Random Walk #
-# directions = [0, 90, 180, 270]
-#
-# tim.pensize(10)
-# tim.speed("fast")
-#
-# for _ in range(200):
-#     tim.color(rnd_color())
-#     tim.forward(50)
-#     tim.setheading(random.choice(directions))
-
-# Challenge 5 - Spirograph #
-# tim.speed("fastest")
-#
-#
-# def draw_spirograph(size_of_gap):
-#     for _ in range(int(360 / size_of_gap)):
-#         tim.color(rnd_color())
-#         tim.circle(100)
-#         tim.setheading(tim.heading() + size_of_gap)
-#
-#
-# draw_spirograph(5)
-
-
+screen = turtle_module.Screen()
 screen.exitonclick()
